@@ -22,11 +22,11 @@ This example demonstrates how to retrieve a weather forecast using `forecast-com
 
     Once `forecast-command` is installed, call `forecast` from the command line.
 
-    For a forecast in Celsius, you can also call `forecast -c` from the command line. For a forecast in Fahrenheit, you can call `forecast -f`.
+    For a forecast in Celsius, you can also call `forecast -c`. For a forecast in Fahrenheit, you can call `forecast -f`.
 
 2. **Enter a temperature scale**
 
-    If you did not already indicate a temperature scale, the program will prompt you to enter one:
+    If you did not already indicate a temperature scale, the program will prompt you for one:
 
     ```
     Enter a temperature scale (Celsius [C] or Fahrenheit [F]):
@@ -44,7 +44,7 @@ This example demonstrates how to retrieve a weather forecast using `forecast-com
 
 4. **Print the forecast**
 
-    The program will print a seven-day weather forecast in reverse chronological order, so that the current day appears closest to the bottom of the output:
+    The program will print a seven-day weather forecast in reverse chronological order, so that the current day appears closest to the bottom:
 
     ```
     Sunday: A chance of rain. Partly sunny, with a high near 12.
@@ -78,7 +78,7 @@ This example demonstrates how to retrieve a weather forecast using `forecast-com
 
 5. **Continue or exit**
 
-    The program will prompt you to enter another zip code. To exit, type `no` (`n`), `quit` (`q`) or `exit` (`e`), or trigger a KeyboardInterrupt (Ctrl + C):
+    The program will prompt you for another zip code. To exit, type `no` (`n`), `quit` (`q`) or `exit` (`e`), or trigger a KeyboardInterrupt (Ctrl + C):
 
     ```
     Any other zip code?:
@@ -118,7 +118,7 @@ Follow these steps to run `forecast-command`:
     pip3 show beautifulsoup4
     ```
 
-    If the package is not installed, you will receive the warning, `WARNING: Package(s) not found`. You can install a missing package using pip.
+    If the package is not installed, you will receive a warning: `WARNING: Package(s) not found`. You can install a missing package using pip.
 
     On macOS:
     ```
