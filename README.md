@@ -108,7 +108,7 @@ forecast_command/
 
 Follow these steps to run `forecast-command`:
 
-1. **Install Python**: Verify that you have Python 3.6 or later. You can install Python at `https://www.python.org/downloads/`.
+1. **Install Python**: Verify that you have Python 3.9 or later. You can install Python at `https://www.python.org/downloads/`.
 2. **Review dependencies**: Make sure the required Python packages are installed: `beautifulsoup4`, `requests` and `setuptools`.
 
     You can check whether these packages are installed using pip's `show` command on each package.
