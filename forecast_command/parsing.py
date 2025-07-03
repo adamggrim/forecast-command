@@ -109,29 +109,3 @@ def format_forecasts(forecasts_text: list[str]) -> list[str]:
         forecast_text = ParsingRegexes.AM_PM_FORMAT.sub('.m.', forecast_text)
         forecasts_text[index] = forecast_text
     return forecasts_text
-
-
-def convert_forecasts(forecasts_text: list[str]) -> list[str]:
-    """
-    Finds forecast temperatures, wind speeds and accumulation totals 
-        and converts them to Celsius, kilometers per hour (km/h) and 
-        centimeters (cm).
-
-    Args:
-        forecasts_text: A list of strings representing days and their 
-            forecasts, beginning with the soonest forecast.
-
-    Returns:
-        formatted_forecasts: A list of strings with the temperatures 
-            converted to Celsius, wind speeds converted to km/h and 
-            accumulation totals converted to cm.
-    """
-    formatted_forecasts: list[str] = format_forecasts(forecasts_text)
-    for index, formatted_forecast in enumerate(formatted_forecasts):
-        numerals_forecast: str = convert_number_words(formatted_forecast)
-        celsius_forecast: str = convert_fahrenheit_temps(numerals_forecast)
-        kmh_forecast: str = convert_mph_speeds(celsius_forecast)
-        cm_forecast: str = convert_inches(kmh_forecast)
-        number_words_forecast: str = convert_numerals(cm_forecast)
-        formatted_forecasts[index] = number_words_forecast
-    return formatted_forecasts
