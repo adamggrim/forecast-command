@@ -11,7 +11,7 @@ from forecast_command.validation import HTMLElementNotFoundError
 
 def parse_args() -> str | None:
     """
-    Parses command-line arguments for a temperature scale specification.
+    Parses command-line arguments for a temperature scale.
 
     Returns:
         str | None: A string representing a specified temperature 
@@ -80,7 +80,7 @@ def parse_forecast(url: str) -> list[str]:
     # Reverse the order of the strings so the current day appears closest to 
     # the console prompt in the output.
     return [
-        day + ": " + forecast_text 
+        day + ': ' + forecast_text 
         for day, forecast_text in zip(
             days[::-1], forecasts_text[::-1]
         )
