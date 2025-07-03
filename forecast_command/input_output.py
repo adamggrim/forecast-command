@@ -5,61 +5,61 @@ import requests
 
 from forecast_command.config import zip_codes_dict
 from forecast_command.constants import (
-    ANY_OTHER_ZIP_PROMPT, 
-    CELSIUS_URL_SUFFIX, 
-    ENTER_VALID_TEMP_SCALE_PROMPT, 
-    ENTER_VALID_ZIP_PROMPT, 
-    ENTER_ZIP_PROMPT, 
-    EXIT_MESSAGE, 
-    NO_INPUTS, 
-    EXIT_INPUTS, 
+    ANY_OTHER_ZIP_PROMPT,
+    CELSIUS_URL_SUFFIX,
+    ENTER_VALID_TEMP_SCALE_PROMPT,
+    ENTER_VALID_ZIP_PROMPT,
+    ENTER_ZIP_PROMPT,
+    EXIT_MESSAGE,
+    NO_INPUTS,
+    EXIT_INPUTS,
     YES_INPUTS
 )
 from forecast_command.enums import TempScale
 from forecast_command.parsing import (
-    format_forecasts, 
+    format_forecasts,
     parse_forecast
 )
 from forecast_command.validation import (
-    HTMLElementNotFoundError, 
-    InvalidTempScaleError, 
-    InvalidUrlFormatError, 
-    InvalidZipCodeFormatError, 
-    NoDataForZipCodeError, 
-    NoTempScaleError, 
-    NoZipCodeError, 
+    HTMLElementNotFoundError,
+    InvalidTempScaleError,
+    InvalidUrlFormatError,
+    InvalidZipCodeFormatError,
+    NoDataForZipCodeError,
+    NoTempScaleError,
+    NoZipCodeError,
     ZipCodeNotFoundError
 )
 from forecast_command.validation import (
-    validate_temp_scale, 
-    validate_url, 
+    validate_temp_scale,
+    validate_url,
     validate_zip_code
 )
 
 
 class ForecastLoop:
     """
-    Prompts the user for input, validates zip codes, and prints 
+    Prompts the user for input, validates zip codes, and prints
         the associated forecasts in Fahrenheit or Celsius.
     """
     def __init__(self):
         """
-        Initializes a new InputLoop instance by prompting the user to 
+        Initializes a new InputLoop instance by prompting the user to
             enter a zip code.
 
         Args:
             self: The instance of the InputLoop class.
         """
         print_wrapped(ENTER_ZIP_PROMPT)
-    
+
     def _process_zip_input(self, temp_scale: TempScale) -> None:
         """
-        Prompts the user to enter a zip code, prints the forecast for 
-            that zip code, and prompts the user to enter any other zip 
+        Prompts the user to enter a zip code, prints the forecast for
+            that zip code, and prompts the user to enter any other zip
             code.
 
         Args:
-            temp_scale (TempScale): The temperature scale for the 
+            temp_scale (TempScale): The temperature scale for the
                 forecast.
         """
         # While loop to deploy functions and get input from the user
@@ -67,7 +67,7 @@ class ForecastLoop:
             url: str = retrieve_url_from_zip(temp_scale)
             print_forecast(url)
             print_wrapped(ANY_OTHER_ZIP_PROMPT)
-    
+
     def fahrenheit(self) -> None:
         """
         Runs the input loop for printing forecasts in Fahrenheit.
@@ -94,7 +94,7 @@ def print_padding() -> None:
 
 def print_wrapped(text: str) -> None:
     """
-    Wraps printing based on the width of the terminal and adds a 
+    Wraps printing based on the width of the terminal and adds a
         newline character to the start of the string.
 
     Args:
@@ -108,7 +108,7 @@ def print_wrapped(text: str) -> None:
 
 def program_exit() -> None:
     """
-    Prints a message that the program is exiting, then exits the 
+    Prints a message that the program is exiting, then exits the
         program.
     """
     print_wrapped(EXIT_MESSAGE)
@@ -139,7 +139,7 @@ def prompt_for_temp_scale() -> str:
 
 def retrieve_url_from_zip(temp_scale: TempScale) -> str:
     """
-    Requests a valid zip code that matches a zip code in the JSON file 
+    Requests a valid zip code that matches a zip code in the JSON file
         and returns the matching URL.
 
     Args:
@@ -151,7 +151,7 @@ def retrieve_url_from_zip(temp_scale: TempScale) -> str:
     """
     def handle_zip_code_error(e: Exception, prompt: str) -> None:
         """
-        Handles exceptions related to ZIP code processing, printing an 
+        Handles exceptions related to ZIP code processing, printing an
             error message and prompt.
 
         Args:
@@ -175,13 +175,13 @@ def retrieve_url_from_zip(temp_scale: TempScale) -> str:
                     url: str = zip_codes_dict[zip_code_input]
                 validate_url(url)
             except (
-                NoZipCodeError, 
+                NoZipCodeError,
                 InvalidZipCodeFormatError
             ) as e:
                 handle_zip_code_error(str(e), ENTER_VALID_ZIP_PROMPT)
             except (
-                ZipCodeNotFoundError, 
-                NoDataForZipCodeError, 
+                ZipCodeNotFoundError,
+                NoDataForZipCodeError,
                 InvalidUrlFormatError
             ) as e:
                 handle_zip_code_error(str(e), ANY_OTHER_ZIP_PROMPT)

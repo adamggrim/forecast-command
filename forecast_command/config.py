@@ -2,7 +2,7 @@ import json
 import os
 
 # Get the directory of the current file.
-file_dir: str = os.path.dirname(__file__) 
+file_dir: str = os.path.dirname(__file__)
 
 # Construct a platform-independent path to the JSON file.
 json_file_path: str = os.path.join(

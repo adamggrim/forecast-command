@@ -1,13 +1,13 @@
 from forecast_command.constants import (
-    CELSIUS_INPUTS, 
-    ENTER_TEMP_SCALE_PROMPT, 
+    CELSIUS_INPUTS,
+    ENTER_TEMP_SCALE_PROMPT,
     FAHRENHEIT_INPUTS
 )
 from forecast_command.input_output import (
-    ForecastLoop, 
-    print_padding, 
+    ForecastLoop,
+    print_padding,
     print_wrapped,
-    program_exit, 
+    program_exit,
     prompt_for_temp_scale
 )
 from forecast_command.parsing import parse_args
@@ -15,7 +15,7 @@ from forecast_command.parsing import parse_args
 
 def main() -> None:
     """
-    Initiates an instance of ForecastLoop and optionally prompts the 
+    Initiates an instance of ForecastLoop and optionally prompts the
         user to run the program in Fahrenheit or Celsius.
     """
     temp_scale_input: str | None = parse_args()

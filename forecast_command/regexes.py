@@ -6,11 +6,11 @@ class ParsingRegexes:
     Compiled regular expressions and string for parsing forecast data.
 
     Attributes:
-        AM_PM_BOUNDARY: Compiled regular expression object that 
+        AM_PM_BOUNDARY: Compiled regular expression object that
             captures the boundary between a time value and a.m. or p.m.
-        AM_PM_FORMAT: Compiled regular expression object that captures 
+        AM_PM_FORMAT: Compiled regular expression object that captures
             a.m. and p.m. strings for reformatting.
-        DUPLICATE_SPACES: Compiled regular expression object that 
+        DUPLICATE_SPACES: Compiled regular expression object that
             captures duplicate spaces and trailing whitespace.
     """
     AM_PM_BOUNDARY: re.Pattern[str] = re.compile(r'(?<=\d)(?=am|pm)')
@@ -23,9 +23,9 @@ class ValidationRegexes:
     Compiled regular expressions for validating input data.
 
     Attributes:
-        URL: Compiled regular expression object that captures any 
+        URL: Compiled regular expression object that captures any
             string that matches weather.gov's forecast URL syntax.
-        ZIP_CODE: Compiled regular expression object that captures any 
+        ZIP_CODE: Compiled regular expression object that captures any
             string that is only a sequence of five digits.
     """
     URL: re.Pattern[str] = re.compile(
