@@ -104,7 +104,6 @@ def print_wrapped(text: str) -> None:
 def program_exit() -> None:
     """Print a message that the program is exiting, then exit the
     program."""
-
     print_wrapped(EXIT_MESSAGE)
     print_padding()
     exit()
