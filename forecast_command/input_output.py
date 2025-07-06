@@ -40,12 +40,12 @@ from forecast_command.validation import (
 class ForecastLoop:
     """
     Prompts the user for input, validates zip codes, and prints
-        the associated forecasts in Fahrenheit or Celsius.
+    the associated forecasts in Fahrenheit or Celsius.
     """
     def __init__(self):
         """
         Initializes a new InputLoop instance by prompting the user to
-            enter a zip code.
+        enter a zip code.
 
         Args:
             self: The instance of the InputLoop class.
@@ -55,8 +55,8 @@ class ForecastLoop:
     def _process_zip_input(self, temp_scale: TempScale) -> None:
         """
         Prompts the user to enter a zip code, prints the forecast for
-            that zip code, and prompts the user to enter any other zip
-            code.
+        that zip code, and prompts the user to enter any other zip
+        code.
 
         Args:
             temp_scale (TempScale): The temperature scale for the
@@ -95,7 +95,7 @@ def print_padding() -> None:
 def print_wrapped(text: str) -> None:
     """
     Wraps printing based on the width of the terminal and adds a
-        newline character to the start of the string.
+    newline character to the start of the string.
 
     Args:
         text: The string to print.
@@ -109,7 +109,7 @@ def print_wrapped(text: str) -> None:
 def program_exit() -> None:
     """
     Prints a message that the program is exiting, then exits the
-        program.
+    program.
     """
     print_wrapped(EXIT_MESSAGE)
     print_padding()
@@ -140,7 +140,7 @@ def prompt_for_temp_scale() -> str:
 def retrieve_url_from_zip(temp_scale: TempScale) -> str:
     """
     Requests a valid zip code that matches a zip code in the JSON file
-        and returns the matching URL.
+    and returns the matching URL.
 
     Args:
         url: The URL for accessing weather data.
@@ -152,7 +152,7 @@ def retrieve_url_from_zip(temp_scale: TempScale) -> str:
     def handle_zip_code_error(e: Exception, prompt: str) -> None:
         """
         Handles exceptions related to ZIP code processing, printing an
-            error message and prompt.
+        error message and prompt.
 
         Args:
             e: The raised exception.
