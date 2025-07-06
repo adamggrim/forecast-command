@@ -38,24 +38,19 @@ from forecast_command.validation import (
 
 
 class ForecastLoop:
-    """
-    Prompts the user for input, validates zip codes, and prints
-    the associated forecasts in Fahrenheit or Celsius.
-    """
+    """A controller to manage the weather forecast prompt loop."""
+
     def __init__(self):
         """
-        Initializes a new InputLoop instance by prompting the user to
+        Initialize a new ForecastLoop instance by prompting the user to
         enter a zip code.
-
-        Args:
-            self: The instance of the InputLoop class.
         """
         print_wrapped(ENTER_ZIP_PROMPT)
 
     def _process_zip_input(self, temp_scale: TempScale) -> None:
         """
-        Prompts the user to enter a zip code, prints the forecast for
-        that zip code, and prompts the user to enter any other zip
+        Prompt the user to enter a zip code, print the forecast for
+        that zip code, and prompt the user to enter any other zip
         code.
 
         Args:
@@ -70,32 +65,32 @@ class ForecastLoop:
 
     def fahrenheit(self) -> None:
         """
-        Runs the input loop for printing forecasts in Fahrenheit.
+        Run the input loop for printing forecasts in Fahrenheit.
 
         Args:
-            self: The instance of the InputLoop class.
+            self: The instance of the ForecastLoop class.
         """
         self._process_zip_input(TempScale.FAHRENHEIT)
 
     def celsius(self) -> None:
         """
-        Runs the input loop for printing forecasts in Celsius.
+        Run the input loop for printing forecasts in Celsius.
 
         Args:
-            self: The instance of the InputLoop class.
+            self: The instance of the ForecastLoop class.
         """
         self._process_zip_input(TempScale.CELSIUS)
 
 
 def print_padding() -> None:
-    """Prints a blank line for padding."""
+    """Print a blank line for padding."""
     print('')
 
 
 def print_wrapped(text: str) -> None:
     """
-    Wraps printing based on the width of the terminal and adds a
-    newline character to the start of the string.
+    Wrap printing based on the width of the terminal and begin the
+    string with a newline character.
 
     Args:
         text: The string to print.
@@ -107,10 +102,9 @@ def print_wrapped(text: str) -> None:
 
 
 def program_exit() -> None:
-    """
-    Prints a message that the program is exiting, then exits the
-    program.
-    """
+    """Print a message that the program is exiting, then exit the
+    program."""
+
     print_wrapped(EXIT_MESSAGE)
     print_padding()
     exit()
@@ -118,7 +112,7 @@ def program_exit() -> None:
 
 def prompt_for_temp_scale() -> str:
     """
-    Requests a valid temperature scale.
+    Prompt the user for a valid temperature scale.
 
     Returns:
         str: A string representing Fahrenheit or Celsius.
@@ -139,11 +133,10 @@ def prompt_for_temp_scale() -> str:
 
 def retrieve_url_from_zip(temp_scale: TempScale) -> str:
     """
-    Requests a valid zip code that matches a zip code in the JSON file
-    and returns the matching URL.
+    Request a valid zip code that matches a zip code in the JSON file
+    and return the matching URL.
 
     Args:
-        url: The URL for accessing weather data.
         temp_scale: The temperature scale to apply to the forecast.
 
     Returns:
@@ -151,7 +144,7 @@ def retrieve_url_from_zip(temp_scale: TempScale) -> str:
     """
     def handle_zip_code_error(e: Exception, prompt: str) -> None:
         """
-        Handles exceptions related to ZIP code processing, printing an
+        Handle exceptions related to ZIP code processing, printing an
         error message and prompt.
 
         Args:
@@ -191,7 +184,7 @@ def retrieve_url_from_zip(temp_scale: TempScale) -> str:
 
 def print_forecast(url: str) -> None:
     """
-    Prints forecast data from a given URL to the console.
+    Print forecast data from a given URL to the console.
 
     Args:
         url: The URL for accessing weather data.

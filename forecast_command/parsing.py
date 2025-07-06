@@ -11,7 +11,7 @@ from forecast_command.validation import HTMLElementNotFoundError
 
 def parse_args() -> str | None:
     """
-    Parses command-line arguments for a temperature scale.
+    Parse command-line arguments for a temperature scale.
 
     Returns:
         str | None: A string representing a specified temperature
@@ -46,7 +46,7 @@ def parse_args() -> str | None:
 
 def parse_forecast(url: str) -> list[str]:
     """
-    Extracts the forecast from the HTML for a given URL.
+    Extract the forecast from the HTML for a given URL.
 
     Args:
         url: The url to access for weather data.
@@ -89,7 +89,7 @@ def parse_forecast(url: str) -> list[str]:
 
 def format_forecasts(forecasts_text: list[str]) -> list[str]:
     """
-    Formats the forecast list elements for printing.
+    Format the forecast list elements for printing.
 
     Args:
         forecasts_text: A list of strings representing days and their

@@ -14,10 +14,8 @@ from forecast_command.parsing import parse_args
 
 
 def main() -> None:
-    """
-    Initiates an instance of ForecastLoop and optionally prompts the
-    user to run the program in Fahrenheit or Celsius.
-    """
+    """Run ForecastLoop and prompt the user for a temperature scale if
+    not provided in command-line arguments."""
     temp_scale_input: str | None = parse_args()
 
     if temp_scale_input is None:
