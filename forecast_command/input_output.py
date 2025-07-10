@@ -50,8 +50,7 @@ class ForecastLoop:
     def _process_zip_input(self, temp_scale: TempScale) -> None:
         """
         Prompt the user to enter a zip code, print the forecast for
-        that zip code, and prompt the user to enter any other zip
-        code.
+        that zip code and prompt the user to enter any other zip code.
 
         Args:
             temp_scale (TempScale): The temperature scale for the
