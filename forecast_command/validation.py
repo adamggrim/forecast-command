@@ -46,8 +46,10 @@ class ZipCodeNotFoundError(Exception):
 
 def validate_temp_scale(temp_scale_input: str) -> None:
     """
-    Validate the temperature scale string by checking whether the
-    string is in the sets CELSIUS_INPUTS or FAHRENHEIT_INPUTS.
+    Validate a temperature scale string.
+
+    This funciton checks whether the string is in the sets
+    CELSIUS_INPUTS or FAHRENHEIT_INPUTS.
 
     Args:
         temp_scale_input: A string representing a temperature scale.
@@ -65,8 +67,10 @@ def validate_temp_scale(temp_scale_input: str) -> None:
 
 def validate_zip_code(zip_code_input: str) -> None:
     """
-    Validate the zip code string passed into the function by checking
-    whether the string is only a sequence of five digits.
+    Validate a zip code string.
+
+    This function checks whether the string consists of a sequence of
+    five digits.
 
     Args:
         zip_code_input: A string representing a zip code.
@@ -89,8 +93,10 @@ def validate_zip_code(zip_code_input: str) -> None:
 
 def validate_url(url: str) -> None:
     """
-    Validate the URL string passed into the function by checking
-    whether the string matches weather.gov's forecast URL syntax.
+    Validate a URL string.
+
+    This function checks whether the string matches weather.gov's
+    forecast URL syntax.
 
     Args:
         url: A string representing a URL.
