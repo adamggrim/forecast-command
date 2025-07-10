@@ -21,15 +21,15 @@ def main() -> None:
     if temp_scale_input is None:
         print_wrapped(ENTER_TEMP_SCALE_PROMPT)
 
-    while True:
-        try:
-            if temp_scale_input is None:
-                temp_scale_input = prompt_for_temp_scale()
-            forecast_loop: ForecastLoop = ForecastLoop()
-            if temp_scale_input in CELSIUS_INPUTS:
-                forecast_loop.celsius()
-            elif temp_scale_input in FAHRENHEIT_INPUTS:
-                forecast_loop.fahrenheit()
-        except KeyboardInterrupt:
-            print_padding()
-            program_exit()
+    try:
+        if temp_scale_input is None:
+            temp_scale_input = prompt_for_temp_scale()
+        forecast_loop: ForecastLoop = ForecastLoop()
+        if temp_scale_input in CELSIUS_INPUTS:
+            forecast_loop.celsius()
+        elif temp_scale_input in FAHRENHEIT_INPUTS:
+            forecast_loop.fahrenheit()
+        program_exit()
+    except KeyboardInterrupt:
+        print_padding()
+        program_exit()

@@ -59,7 +59,9 @@ class ForecastLoop:
         """
         # While loop to deploy functions and get input from the user
         while True:
-            url: str = retrieve_url_from_zip(temp_scale)
+            url: str | None = retrieve_url_from_zip(temp_scale)
+            if url is None:
+                break
             print_forecast(url)
             print_wrapped(ANY_OTHER_ZIP_PROMPT)
 
@@ -140,45 +142,37 @@ def retrieve_url_from_zip(temp_scale: TempScale) -> str:
 
     Returns:
         url: The url for the zip code input.
+        None: If the user signals to exit.
     """
-    def handle_zip_code_error(e: Exception, prompt: str) -> None:
-        """
-        Handle exceptions related to ZIP code processing, printing an
-        error message and prompt.
-
-        Args:
-            e: The raised exception.
-            prompt: The prompt to print.
-        """
-        print_wrapped(str(e))
-        print_wrapped(prompt)
     while True:
         zip_code_input: str = input().strip().lower()
+
         if zip_code_input in (NO_INPUTS | EXIT_INPUTS):
-            program_exit()
+            return None
         elif zip_code_input in YES_INPUTS:
             print_wrapped(ENTER_VALID_ZIP_PROMPT)
-        else:
-            try:
-                validate_zip_code(zip_code_input)
-                if temp_scale == TempScale.CELSIUS:
-                    url: str = zip_codes_dict[zip_code_input] + CELSIUS_URL_SUFFIX
-                else:
-                    url: str = zip_codes_dict[zip_code_input]
-                validate_url(url)
-            except (
-                NoZipCodeError,
-                InvalidZipCodeFormatError
-            ) as e:
-                handle_zip_code_error(str(e), ENTER_VALID_ZIP_PROMPT)
-            except (
-                ZipCodeNotFoundError,
-                NoDataForZipCodeError,
-                InvalidUrlFormatError
-            ) as e:
-                handle_zip_code_error(str(e), ANY_OTHER_ZIP_PROMPT)
-            else:
-                return url
+            continue
+
+        try:
+            validate_zip_code(zip_code_input)
+            url = zip_codes_dict[zip_code_input]
+            if temp_scale == TempScale.CELSIUS:
+                url += CELSIUS_URL_SUFFIX
+            validate_url(url)
+            return url
+        except (
+            NoZipCodeError,
+            InvalidZipCodeFormatError
+        ) as e:
+            print_wrapped(str(e))
+            print_wrapped(ENTER_VALID_ZIP_PROMPT)
+        except (
+            ZipCodeNotFoundError,
+            NoDataForZipCodeError,
+            InvalidUrlFormatError
+        ) as e:
+            print_wrapped(str(e))
+            print_wrapped(ANY_OTHER_ZIP_PROMPT)
 
 
 def print_forecast(url: str) -> None:
