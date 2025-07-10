@@ -20,7 +20,7 @@ from forecast_command.parsing import (
     format_forecasts,
     parse_forecast
 )
-from forecast_command.validation import (
+from forecast_command.exceptions import (
     HTMLElementNotFoundError,
     InvalidTempScaleError,
     InvalidUrlFormatError,
