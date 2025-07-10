@@ -163,17 +163,18 @@ def program_exit() -> None:
     exit()
 
 
-def prompt_for_temp_scale() -> str:
+def prompt_for_temp_scale() -> str | None:
     """
     Prompt the user for a valid temperature scale.
 
     Returns:
         str: A string representing Fahrenheit or Celsius.
+        None: If the user signals to exit.
     """
     while True:
         temp_scale_input: str = input().strip().lower()
         if temp_scale_input in (NO_INPUTS | EXIT_INPUTS):
-            program_exit()
+            return None
         else:
             try:
                 validate_temp_scale(temp_scale_input)

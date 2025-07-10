@@ -24,6 +24,9 @@ def main() -> None:
     try:
         if temp_scale_input is None:
             temp_scale_input = prompt_for_temp_scale()
+        if temp_scale_input is None:
+            program_exit()
+
         forecast_loop: ForecastLoop = ForecastLoop()
         if temp_scale_input in CELSIUS_INPUTS:
             forecast_loop.celsius()
