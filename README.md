@@ -36,7 +36,7 @@ This example demonstrates how to retrieve a weather forecast using `forecast-com
 3. **Enter a zip code**
 
     The program will prompt you to enter a zip code:
-    
+
     ```
     Enter zip code (5 digits):
     80204
@@ -98,10 +98,11 @@ forecast_command/
 ├── config.py: Opens the JSON file for use in the package
 ├── constants.py: Defines constants used throughout the package
 ├── enums.py: Defines enum for temperature scales
+├── exceptions.py: Defines custom exceptions
 ├── input_output.py: Handles user input and console output
 ├── parsing.py: Parses input, HTML data and command-line arguments
 ├── regexes.py: Defines regular expressions for parsing
-└── validation.py: Defines functions for zip code and URL validation
+└── validation.py: Defines functions for validating input
 ```
 
 ## Usage
