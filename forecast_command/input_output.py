@@ -81,7 +81,7 @@ class ForecastLoop:
             temp_scale: The temperature scale to apply to the forecast.
 
         Returns:
-            url: The url for the zip code input.
+            url: The URL for the zip code input.
             None: If the user signals to exit.
         """
         while True:

@@ -49,7 +49,7 @@ def parse_forecast(url: str) -> list[str]:
     Extract the forecast from the HTML for a given URL.
 
     Args:
-        url: The url to access for weather data.
+        url: The URL to access for weather data.
 
     Returns:
         list[str]: A list of strings pairing each day string with a
