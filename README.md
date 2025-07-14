@@ -35,7 +35,7 @@ This example demonstrates how to retrieve a weather forecast using `forecast-com
 
 3. **Enter a zip code**
 
-    The program will prompt you to enter a zip code:
+    The program will then prompt you to enter a zip code:
 
     ```
     Enter zip code (5 digits):
@@ -110,25 +110,18 @@ forecast_command/
 Follow these steps to run `forecast-command`:
 
 1. **Install Python**: Verify that you have Python 3.9 or later. You can install Python at `https://www.python.org/downloads/`.
-2. **Review dependencies**: Make sure the required Python packages are installed: `beautifulsoup4`, `requests` and `setuptools`.
 
-    You can check whether these packages are installed using pip's `show` command on each package.
+You can check your Python version with the `python --version` command (`python3 --version` on macOS/Linux).
 
-    On macOS:
+2. **Install the package**: Install `forecast-command` using pip.
+
+    On Windows:
+
     ```
-    pip3 show beautifulsoup4
-    ```
-
-    If the package is not installed, you will receive a warning: `WARNING: Package(s) not found`. You can install a missing package using pip.
-
-    On macOS:
-    ```
-    pip3 install beautifulsoup4
+    pip install git+https://github.com/adamggrim/forecast-command.git
     ```
 
-3. **Install the package**: Install `forecast-command` using pip.
-
-    On macOS:
+    On macOS/Linux:
 
     ```
     pip3 install git+https://github.com/adamggrim/forecast-command.git
@@ -136,15 +129,20 @@ Follow these steps to run `forecast-command`:
 
 4. **Run the program**: Execute the program by calling `forecast`, `forecast -c` (for Celsius) or `forecast -f` (for Fahrenheit) from the command line.
 
-## Troubleshooting
+## Troubleshooting (macOS/Linux)
 
-If the console cannot find the `forecast` command when you try to run it from the command line, it was not installed on your system PATH.
+If the console cannot find the `forecast` command when you try to run it from the command line, it was not installed on your system's PATH.
 
 To resolve this, follow these steps:
 
 1. Find the installed location of the `forecast-command` package using pip's `show` command.
 
-    On macOS:
+    On Windows:
+    ```
+    pip3 show forecast-command
+    ```
+
+    On macOS/Linux:
     ```
     pip3 show forecast-command
     ```
@@ -161,7 +159,12 @@ To resolve this, follow these steps:
     find /Library/Frameworks/Python.framework/Versions/3.12/ -name forecast
     ```
 
-3. Create a symbolic link to the underlying `forecast` command file and place it in the local directory on your system PATH.
+    On Linux:
+    ```
+    find /home/user/.local/ -name forecast
+    ```
+
+3. Create a symbolic link to the underlying `forecast` command file and place it in the local directory on your system's PATH.
 
     On macOS:
 
@@ -169,7 +172,13 @@ To resolve this, follow these steps:
     sudo ln -s /Library/Frameworks/Python.framework/Versions/3.12/bin/forecast /usr/local/bin/
     ```
 
-    To find the system PATH, you can type `echo $PATH` into the console (macOS).
+    On Linux:
+
+    ```
+    sudo ln -s /home/user/.local/bin/forecast /usr/local/bin/
+    ```
+
+    To find the system's PATH, you can type `echo $PATH` into the console (macOS/Linux).
 
 ## License
 
