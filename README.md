@@ -92,7 +92,7 @@ This example demonstrates how to retrieve a weather forecast using `forecast-com
 ```
 forecast_command/
 └── data/
-|   └── zip_code_url_map.json: Maps zip code strings to weather.gov forecast URL strings
+|   └── zip_code_to_url_map.json: Maps zip code strings to weather.gov forecast URL strings
 ├── __init__.py: File for recognizing the package
 ├── __main__.py: Runs the forecast command
 ├── config.py: Opens the JSON file for use in the package
