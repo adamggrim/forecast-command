@@ -3,7 +3,7 @@ import textwrap
 
 import requests
 
-from forecast_command.config import zip_code_url_dict
+from forecast_command.config import zip_code_to_url_map
 from forecast_command.constants import (
     ANY_OTHER_ZIP_PROMPT,
     CELSIUS_URL_SUFFIX,
@@ -95,7 +95,7 @@ class ForecastLoop:
 
             try:
                 validate_zip_code(zip_code_input)
-                url = zip_code_url_dict[zip_code_input]
+                url = zip_code_to_url_map[zip_code_input]
                 if temp_scale == TempScale.CELSIUS:
                     url += CELSIUS_URL_SUFFIX
                 validate_url(url)

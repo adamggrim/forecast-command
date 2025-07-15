@@ -1,4 +1,4 @@
-from forecast_command.config import zip_code_url_dict
+from forecast_command.config import zip_code_to_url_map
 from forecast_command.constants import (
     CELSIUS_INPUTS,
     FAHRENHEIT_INPUTS
@@ -56,9 +56,9 @@ def validate_zip_code(zip_code_input: str) -> None:
         raise NoZipCodeError('No zip code entered.')
     elif not ValidationRegexes.ZIP_CODE.match(zip_code_input):
         raise InvalidZipCodeFormatError('Invalid zip code format.')
-    elif zip_code_input not in zip_code_url_dict:
+    elif zip_code_input not in zip_code_to_url_map:
         raise ZipCodeNotFoundError('Zip code not found.')
-    elif zip_code_url_dict[zip_code_input] == '':
+    elif zip_code_to_url_map[zip_code_input] == '':
         raise NoDataForZipCodeError(f'No data available for {zip_code_input}.')
 
 
