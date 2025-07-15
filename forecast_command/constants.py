@@ -22,6 +22,9 @@ CELSIUS_INPUTS: set[str] = {'celsius', 'c'}
 # String appended to a URL for Celsius forecasts
 CELSIUS_URL_SUFFIX: str = '&FcstType=text&unit=1'
 
+# Name for the directory containing data files
+DATA_DIR_NAME: str = 'data'
+
 # String printed to prompt the user to enter a temperature scale
 ENTER_TEMP_SCALE_PROMPT: str = (
     'Enter a temperature scale (Celsius [C] or Fahrenheit [F]):'
@@ -52,3 +55,6 @@ NO_INPUTS: set[str] = {'no', 'n'}
 
 # Set of strings for indicating an affirmative response
 YES_INPUTS: set[str] = {'yes', 'y'}
+
+# String for the file name of the zip code to URL map.
+ZIP_CODE_MAP_FILE_NAME: str = 'zip_code_to_url_map.json'
