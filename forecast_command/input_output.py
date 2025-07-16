@@ -11,7 +11,11 @@ from forecast_command.constants import (
     ENTER_VALID_ZIP_PROMPT,
     ENTER_ZIP_PROMPT,
     EXIT_MESSAGE,
+    HTML_ELEMENT_NOT_FOUND_MESSAGE,
     NO_INPUTS,
+    NO_INTERNET_CONNECTION_MESSAGE,
+    REQUEST_TIMEOUT_MESSAGE,
+    UNEXPECTED_ERROR_MESSAGE,
     EXIT_INPUTS,
     YES_INPUTS
 )
@@ -127,13 +131,13 @@ class ForecastLoop:
             for day_forecast in formatted_forecasts:
                 print_wrapped(day_forecast)
         except requests.exceptions.ConnectionError:
-            print_wrapped('No internet connection. Please try again.')
+            print_wrapped(NO_INTERNET_CONNECTION_MESSAGE)
         except requests.exceptions.Timeout:
-            print_wrapped('The request timed out. Please try again.')
+            print_wrapped(REQUEST_TIMEOUT_MESSAGE)
         except HTMLElementNotFoundError as e:
-            print_wrapped(f'HTML element not found: {e}')
+            print_wrapped(f'{HTML_ELEMENT_NOT_FOUND_MESSAGE}{e}')
         except Exception as e:
-            print_wrapped(f'An unexpected error occurred: {e}')
+            print_wrapped(f'{UNEXPECTED_ERROR_MESSAGE}{e}')
 
 
 def print_padding() -> None:

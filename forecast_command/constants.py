@@ -50,8 +50,24 @@ EXIT_MESSAGE: str = 'Exiting the program...'
 # Inputs for selecting Fahrenheit.
 FAHRENHEIT_INPUTS: set[str] = {'fahrenheit', 'f'}
 
+# Prefix for when the HTML element for the forecast is not found.
+HTML_ELEMENT_NOT_FOUND_MESSAGE: str = (
+    'HTML element not found: '
+)
+
 # Inputs for indicating a negative response.
 NO_INPUTS: set[str] = {'no', 'n'}
+
+# Message for when there is no internet connection.
+NO_INTERNET_CONNECTION_MESSAGE: str = (
+    'No internet connection. Please try again.'
+)
+
+# Message for when the request times out.
+REQUEST_TIMEOUT_MESSAGE: str = 'The request timed out. Please try again.'
+
+# Prefix for unexpected errors.
+UNEXPECTED_ERROR_MESSAGE: str = 'An unexpected error occurred: '
 
 # Inputs for indicating an affirmative response.
 YES_INPUTS: set[str] = {'yes', 'y'}
