@@ -73,4 +73,4 @@ UNEXPECTED_ERROR_MESSAGE: str = 'An unexpected error occurred: '
 YES_INPUTS: set[str] = {'yes', 'y'}
 
 # The file name of the zip code to URL map.
-ZIP_CODE_MAP_FILE_NAME: str = 'zip_code_to_url_map.json'
+ZIP_CODE_TO_URL_MAP_FILE_NAME: str = 'zip_code_to_url_map.json'
