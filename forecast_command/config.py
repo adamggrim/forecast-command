@@ -13,6 +13,6 @@ json_file_path: str = os.path.join(
     file_dir, DATA_DIR_NAME, ZIP_CODE_TO_URL_MAP_FILE_NAME
 )
 
-# Load the JSON data, which pairs a forecast URL with each zip code.
+# Load the JSON data, which pairs each zip code with a forecast URL.
 with open(json_file_path, 'r') as json_file:
     zip_code_to_url_map: dict[str, str] = json.load(json_file)
