@@ -12,7 +12,6 @@
 
 - `beautifulsoup4`: For parsing HTML data retrieved from weather.gov
 - `requests`: For making HTTP requests to retrieve forecast data from weather.gov
-- `setuptools`: For building and installing the `forecast-command` package, and for implementing command-line functionality using entry points
 
 ## Example
 
@@ -95,7 +94,7 @@ forecast_command/
 |   └── zip_code_to_url_map.json: Maps zip code strings to weather.gov forecast URL strings
 ├── __init__.py: File for recognizing the package
 ├── __main__.py: Runs the forecast command
-├── config.py: Opens the JSON file for use in the package
+├── config.py: Loads JSON file for use in the package
 ├── constants.py: Defines constants used throughout the package
 ├── enums.py: Defines enum for temperature scales
 ├── exceptions.py: Defines custom exceptions for data and input errors
