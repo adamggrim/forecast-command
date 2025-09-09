@@ -97,7 +97,7 @@ def format_forecasts(forecasts_text: list[str]) -> list[str]:
     Returns:
         forecasts_text: A list of reformatted strings.
     """
-    for index, forecast_text in enumerate(forecasts_text):
+    for i, forecast_text in enumerate(forecasts_text):
         # Remove extra spaces.
         forecast_text: str = ParsingRegexes.DUPLICATE_SPACES.sub(
             '', forecast_text
@@ -106,5 +106,5 @@ def format_forecasts(forecasts_text: list[str]) -> list[str]:
         forecast_text = ParsingRegexes.AM_PM_BOUNDARY.sub(' ', forecast_text)
         # Standardize the format of a.m. and p.m.
         forecast_text = ParsingRegexes.AM_PM_FORMAT.sub('.m.', forecast_text)
-        forecasts_text[index] = forecast_text
+        forecasts_text[i] = forecast_text
     return forecasts_text
