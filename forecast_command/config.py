@@ -1,8 +1,10 @@
 import json
 import os
+from typing import cast
+
 from forecast_command.constants import (
     DATA_DIR_NAME,
-    ZIP_CODE_TO_URL_MAP_FILE_NAME,
+    ZIP_CODE_TO_URL_MAP_FILE_NAME
 )
 
 # Get the directory of the current file.
@@ -15,4 +17,6 @@ json_file_path: str = os.path.join(
 
 # Load the JSON data, which pairs each zip code with a forecast URL.
 with open(json_file_path, 'r') as json_file:
-    zip_code_to_url_map: dict[str, str] = json.load(json_file)
+    zip_code_to_url_map: dict[str, str] = cast(
+        dict[str, str], json.load(json_file)
+    )
