@@ -3,8 +3,8 @@ import textwrap
 
 import requests
 
-from forecast_command.config import zip_code_to_url_map
-from forecast_command.constants import (
+from .config import zip_code_to_url_map
+from .constants import (
     ANY_OTHER_ZIP_PROMPT,
     CELSIUS_URL_SUFFIX,
     ENTER_VALID_TEMP_SCALE_PROMPT,
@@ -19,12 +19,12 @@ from forecast_command.constants import (
     EXIT_INPUTS,
     YES_INPUTS
 )
-from forecast_command.enums import TempScale
-from forecast_command.parsing import (
+from .enums import TempScale
+from .parsing import (
     format_forecasts,
     parse_forecast
 )
-from forecast_command.exceptions import (
+from .exceptions import (
     HTMLElementNotFoundError,
     InvalidTempScaleError,
     InvalidUrlFormatError,
@@ -34,7 +34,7 @@ from forecast_command.exceptions import (
     NoZipCodeError,
     ZipCodeNotFoundError
 )
-from forecast_command.validation import (
+from .validation import (
     validate_temp_scale,
     validate_url,
     validate_zip_code

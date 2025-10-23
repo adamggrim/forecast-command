@@ -1,9 +1,9 @@
-from forecast_command.config import zip_code_to_url_map
-from forecast_command.constants import (
+from .config import zip_code_to_url_map
+from .constants import (
     CELSIUS_INPUTS,
     FAHRENHEIT_INPUTS
 )
-from forecast_command.exceptions import (
+from .exceptions import (
     InvalidTempScaleError,
     InvalidUrlFormatError,
     InvalidZipCodeFormatError,
@@ -12,7 +12,7 @@ from forecast_command.exceptions import (
     NoZipCodeError,
     ZipCodeNotFoundError
 )
-from forecast_command.regexes import ValidationRegexes
+from .regexes import ValidationRegexes
 
 
 def validate_temp_scale(temp_scale_input: str) -> None:
