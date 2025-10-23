@@ -1,9 +1,9 @@
-from .constants import (
+from ._constants import (
     CELSIUS_INPUTS,
     ENTER_TEMP_SCALE_PROMPT,
     FAHRENHEIT_INPUTS
 )
-from .input_output import (
+from ._input_output import (
     ForecastLoop,
     print_padding,
     print_wrapped,

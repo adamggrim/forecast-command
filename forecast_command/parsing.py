@@ -3,9 +3,9 @@ import argparse
 import requests
 from bs4 import BeautifulSoup, Tag
 
-from .constants import HelpMessages
-from .regexes import ParsingRegexes
-from .exceptions import HTMLElementNotFoundError
+from ._constants import HelpMessages
+from ._regexes import ParsingRegexes
+from ._exceptions import HTMLElementNotFoundError
 
 
 def parse_args() -> str | None:

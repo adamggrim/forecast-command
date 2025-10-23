@@ -3,8 +3,8 @@ import textwrap
 
 import requests
 
-from .config import zip_code_to_url_map
-from .constants import (
+from ._config import zip_code_to_url_map
+from ._constants import (
     ANY_OTHER_ZIP_PROMPT,
     CELSIUS_URL_SUFFIX,
     ENTER_VALID_TEMP_SCALE_PROMPT,
@@ -19,12 +19,12 @@ from .constants import (
     EXIT_INPUTS,
     YES_INPUTS
 )
-from .enums import TempScale
+from ._enums import TempScale
 from .parsing import (
     format_forecasts,
     parse_forecast
 )
-from .exceptions import (
+from ._exceptions import (
     HTMLElementNotFoundError,
     InvalidTempScaleError,
     InvalidUrlFormatError,
@@ -34,7 +34,7 @@ from .exceptions import (
     NoZipCodeError,
     ZipCodeNotFoundError
 )
-from .validation import (
+from ._validation import (
     validate_temp_scale,
     validate_url,
     validate_zip_code

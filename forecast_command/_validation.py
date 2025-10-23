@@ -1,9 +1,9 @@
-from .config import zip_code_to_url_map
-from .constants import (
+from ._config import zip_code_to_url_map
+from ._constants import (
     CELSIUS_INPUTS,
     FAHRENHEIT_INPUTS
 )
-from .exceptions import (
+from ._exceptions import (
     InvalidTempScaleError,
     InvalidUrlFormatError,
     InvalidZipCodeFormatError,
@@ -12,7 +12,7 @@ from .exceptions import (
     NoZipCodeError,
     ZipCodeNotFoundError
 )
-from .regexes import ValidationRegexes
+from ._regexes import ValidationRegexes
 
 
 def validate_temp_scale(temp_scale_input: str) -> None:

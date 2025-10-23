@@ -2,7 +2,7 @@ import json
 import os
 from typing import cast
 
-from .constants import (
+from ._constants import (
     DATA_DIR_NAME,
     ZIP_CODE_TO_URL_MAP_FILE_NAME
 )
