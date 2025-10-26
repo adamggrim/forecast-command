@@ -29,7 +29,7 @@ CELSIUS_INPUTS: Final[set[str]] = {'celsius', 'c'}
 CELSIUS_URL_SUFFIX: Final[str] = '&FcstType=text&unit=1'
 
 # Name for the directory containing data files.
-DATA_DIR_NAME: Final[str] = 'data'
+DATA_DIR_NAME: Final[str] = '_data'
 
 # Prompt for the user to enter a temperature scale.
 ENTER_TEMP_SCALE_PROMPT: Final[str] = (
