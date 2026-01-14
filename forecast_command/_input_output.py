@@ -20,10 +20,8 @@ from ._constants import (
     YES_INPUTS
 )
 from ._enums import TempScale
-from .parsing import (
-    format_forecasts,
-    parse_forecast
-)
+from .formatting import format_forecasts
+from .parsing import parse_forecast
 from ._exceptions import (
     HTMLElementNotFoundError,
     InvalidTempScaleError,
