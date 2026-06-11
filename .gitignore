@@ -1,6 +1,6 @@
-.DS_Store
-*.egg-info
 __pycache__/
 build/
+.DS_Store
+*.egg-info
 .vscode/settings.json
 repomix-output.xml
